@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checking the Config') {
             steps {
-                sh "eksctl create cluster --config-file=cluster.yaml --dry-run"
+                sh "eksctl create cluster --config-file=cluster.ml --dry-run"
             }
         }
         stage('Creating Cluster') {
@@ -15,7 +15,7 @@ pipeline {
                         echo "Cluster Already Exists"  
                     } else {
                         echo "Creating Cluster"
-                        sh "eksctl create cluster --config-file=cluster.yaml"
+                        sh "eksctl create cluster --config-file=cluster.yml"
                     }
                 }
             }
@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Update AWS AUTH Config') {
             steps {
-                sh 'kubectl patch configmap aws-auth -n kube-system --patch "$(cat aws-auth-cm.yaml)"'
+                sh 'kubectl patch configmap aws-auth -n kube-system --patch "$(cat aws-auth-cm.yml)"'
             }
         }
     }
