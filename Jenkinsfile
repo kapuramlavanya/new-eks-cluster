@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checking the Config') {
             steps {
-                sh "eksctl create cluster --config-file=cluster.ml --dry-run"
+                sh "eksctl create cluster --config-file=cluster.yml --dry-run"
             }
         }
         stage('Creating Cluster') {
