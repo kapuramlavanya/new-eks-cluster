@@ -6,7 +6,7 @@ kind: ClusterConfig
 
 metadata:
   name: realtime-project
-  region: us-west-2
+  region: us-east-1
   version: '1.28'
 iam:
   withOIDC: true
